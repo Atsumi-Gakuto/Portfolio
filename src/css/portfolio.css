@@ -209,9 +209,15 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: calc(100% - 80px);
+    padding: 20px;
+    background-color: rgb(255, 230, 230);
+    border: solid 1px rgb(255, 120, 120);
+    border-radius: 16px;
 }
 
 .load_fail > p {
+    margin: 0 0 1em 0;
     font-size: large;
     font-weight: bold;
 }
@@ -243,6 +249,14 @@ main {
 }
 
 /* WORKSセクション */
+#works_area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
 #works {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

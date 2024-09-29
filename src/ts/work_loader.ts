@@ -110,12 +110,18 @@ class WorkLoader extends SectionLoader {
      * タグの一覧を読み込む。
      */
     private getTags(): Promise<void> {
+        const tagLoadFail: HTMLDivElement = document.getElementById("tags_load_fail") as HTMLDivElement;
+        tagLoadFail.classList.add("hidden");
         return new Promise((resolve: () => void) => {
             fetch("./data/tags.json").then((response: Response) => {
                 response.json().then((data: {[key: string]: TagData}) => {
                     for(let key in data) this.Tags[key] = data[key];
                     resolve();
+                }).catch(() => {
+                    tagLoadFail.classList.remove("hidden");
                 });
+            }).catch(() => {
+                tagLoadFail.classList.remove("hidden");
             });
         });
     }
@@ -124,6 +130,7 @@ class WorkLoader extends SectionLoader {
      * 初期化関数
      */
     public async init(): Promise<void> {
+        (document.querySelector("#tags_load_fail > button") as HTMLDivElement).addEventListener("click", this.getTags);
         await this.getTags();
         super.init();
     }
