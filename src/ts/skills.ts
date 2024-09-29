@@ -28,6 +28,7 @@ function getSkills(): void {
         response.json().then((data: SkillData[]) => {
             data.forEach((entry: SkillData) => {
                 const skillEntry: HTMLDivElement = document.createElement("div");
+                skillEntry.classList.add("gray_floating_block");
                 const skillIcon: HTMLImageElement = document.createElement("img");
                 skillIcon.src = typeof(entry.icon) == "string" ? `./images/skill_icons/${entry.icon}` : "./images/skill_icons/default.svg";
                 const skillName: HTMLParagraphElement = document.createElement("p");
