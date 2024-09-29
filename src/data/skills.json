@@ -1,6 +1,90 @@
 [
     {
-        "name": "スキル名",
+        "name": "Javascript",
+        "icon": "javascript.svg"
+    },
+    {
+        "name": "TypeScript",
+        "icon": "typescript.svg"
+    },
+    {
+        "name": "Node.js",
+        "icon": "nodejs.svg"
+    },
+    {
+        "name": "C",
+        "icon": "c.svg"
+    },
+    {
+        "name": "C#",
+        "icon": "csharp.svg"
+    },
+    {
+        "name": "マイコン開発",
         "icon": null
+    },
+    {
+        "name": "Raspberry Pi",
+        "icon": "raspberry_pi.svg"
+    },
+    {
+        "name": "Arduino",
+        "icon": "arduino.svg"
+    },
+    {
+        "name": "Leafony",
+        "icon": "leafony.avif"
+    },
+    {
+        "name": "PSoC",
+        "icon": "infineon.svg"
+    },
+    {
+        "name": "STM32",
+        "icon": "st_microelectronics.svg"
+    },
+    {
+        "name": "GitHub Actions",
+        "icon": "github.svg"
+    },
+    {
+        "name": "html",
+        "icon": "html.svg"
+    },
+    {
+        "name": "CSS",
+        "icon": "css.svg"
+    },
+    {
+        "name": "Swift",
+        "icon": "swift.svg"
+    },
+    {
+        "name": "iOS/iPadOSアプリ開発",
+        "icon": "apple.svg"
+    },
+    {
+        "name": "Java",
+        "icon": "java.svg"
+    },
+    {
+        "name": "MySQL",
+        "icon": "mysql.svg"
+    },
+    {
+        "name": "Python",
+        "icon": "python.svg"
+    },
+    {
+        "name": "Google Colab",
+        "icon": "google_colab.svg"
+    },
+    {
+        "name": "Unity",
+        "icon": "unity.svg"
+    },
+    {
+        "name": "MATLAB",
+        "icon": "matlab.svg"
     }
 ]

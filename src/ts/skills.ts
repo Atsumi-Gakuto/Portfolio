@@ -22,12 +22,12 @@ function getSkills(): void {
     loadingIcon.classList.remove("hidden");
     skillArea.classList.add("hidden");
     while(skillArea.children.length > 0) skillArea.children.item(0)!.remove();
-    fetch("../data/skills.json").then((response: Response) => {
+    fetch("./data/skills.json").then((response: Response) => {
         response.json().then((data: SkillData[]) => {
             data.forEach((entry: SkillData) => {
                 const skillEntry: HTMLDivElement = document.createElement("div");
                 const skillIcon: HTMLImageElement = document.createElement("img");
-                if(typeof(entry.icon) == "string") skillIcon.src = entry.icon;
+                skillIcon.src = typeof(entry.icon) == "string" ? `./images/skill_icons/${entry.icon}` : "./images/skill_icons/default.svg";
                 const skillName: HTMLParagraphElement = document.createElement("p");
                 skillName.innerText = entry.name;
                 skillEntry.appendChild(skillIcon);

@@ -201,6 +201,5 @@ main {
 
 #skills > div > img {
     width: 28px;
-    height: 28px;
-    border: solid 1px black;
+    max-height: 28px;
 }
