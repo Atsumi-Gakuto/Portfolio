@@ -1,0 +1,48 @@
+/* 全体 */
+body {
+    margin: 0;
+}
+
+button {
+    display: block;
+    color: unset;
+    background-color: transparent;
+    font-weight: unset;
+    border: none;
+    cursor: pointer;
+}
+
+/* ヘッダー */
+header {
+    width: calc(100vw - 40px);
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+    box-shadow: 0px -2px 6px 5px rgba(0, 0, 0, 0.25);
+}
+
+.header_title {
+    margin: 10px 0;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    height: 100%;
+}
+
+nav > button {
+    width: 100px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+nav > button:hover {
+    color: black;
+    background-color: white;
+}
