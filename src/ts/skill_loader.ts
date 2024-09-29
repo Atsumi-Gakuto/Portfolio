@@ -15,13 +15,27 @@ interface SkillData {
 
 class SkillLoader extends SectionLoader {
     /**
+     * コンテンツ読み込み直前に実行される関数
+     */
+    protected onBeforeLoad(): void {
+        super.onBeforeLoad();
+        (document.getElementById("skills") as HTMLDivElement).classList.add("hidden");
+    }
+
+    /**
+     * コンテンツの読込に成功した時に実行される関数
+     */
+    protected onLoadSucceeded(): void {
+        super.onLoadSucceeded();
+        (document.getElementById("skills") as HTMLDivElement).classList.remove("hidden");
+    }
+
+    /**
      * セクション内のコンテンツを取得する。
      */
     protected getContents(): void {
+        this.onBeforeLoad();
         const skillArea: HTMLDivElement = document.getElementById("skills") as HTMLDivElement;
-        this.LoadingArea.classList.remove("hidden");
-        this.LoadFailedArea.classList.add("hidden");
-        skillArea.classList.add("hidden");
         while(skillArea.children.length > 0) skillArea.children.item(0)!.remove();
         fetch("./data/skills.json").then((response: Response) => {
             response.json().then((data: SkillData[]) => {
@@ -36,15 +50,12 @@ class SkillLoader extends SectionLoader {
                     skillEntry.appendChild(skillName);
                     skillArea.appendChild(skillEntry);
                 });
-                this.LoadingArea.classList.add("hidden");
-                skillArea.classList.remove("hidden");
+                this.onLoadSucceeded();
             }).catch(() => {
-                this.LoadingArea.classList.add("hidden");
-                this.LoadFailedArea.classList.remove("hidden");
+                this.onLoadFailed();
             });
         }).catch(() => {
-            this.LoadingArea.classList.add("hidden");
-            this.LoadFailedArea.classList.remove("hidden");
+            this.onLoadFailed();
         });
     }
 }

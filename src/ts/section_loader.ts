@@ -23,6 +23,29 @@ abstract class SectionLoader {
     }
 
     /**
+     * コンテンツ読み込み直前に実行される関数
+     */
+    protected onBeforeLoad(): void {
+        this.LoadingArea.classList.remove("hidden");
+        this.LoadFailedArea.classList.add("hidden");
+    }
+
+    /**
+     * コンテンツの読込に成功した時に実行される関数
+     */
+    protected onLoadSucceeded(): void {
+        this.LoadingArea.classList.add("hidden");
+    }
+
+    /**
+     * コンテンツの読込に失敗した時に実行される関数
+     */
+    protected onLoadFailed(): void {
+        this.LoadingArea.classList.add("hidden");
+        this.LoadFailedArea.classList.remove("hidden");
+    }
+
+    /**
      * セクション内のコンテンツを取得する。
      */
     protected abstract getContents(): void;
