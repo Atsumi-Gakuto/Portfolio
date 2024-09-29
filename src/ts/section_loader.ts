@@ -46,9 +46,19 @@ abstract class SectionLoader {
     }
 
     /**
+     * セクション内のコンテンツを取得する真髄の関数
+     * @returns コンテンツを取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
+     */
+    protected abstract getContentsCore(): Promise<boolean>;
+
+    /**
      * セクション内のコンテンツを取得する。
      */
-    protected abstract getContents(): void;
+    protected async getContents(): Promise<void> {
+        this.onBeforeLoad();
+        if(await this.getContentsCore()) this.onLoadSucceeded();
+        else this.onLoadFailed();
+    }
 
     /**
      * 初期化関数
