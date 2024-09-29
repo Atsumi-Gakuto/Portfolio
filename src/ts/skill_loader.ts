@@ -45,7 +45,7 @@ class SkillLoader extends SectionLoader {
                         const skillEntry: HTMLDivElement = document.createElement("div");
                         skillEntry.classList.add("gray_floating_block");
                         const skillIcon: HTMLImageElement = document.createElement("img");
-                        skillIcon.src = typeof(entry.icon) == "string" ? `./images/skill_icons/${entry.icon}` : "./images/skill_icons/default.svg";
+                        skillIcon.src = entry.icon != null ? `./images/skill_icons/${entry.icon}` : "./images/skill_icons/default.svg";
                         const skillName: HTMLParagraphElement = document.createElement("p");
                         skillName.innerText = entry.name;
                         skillEntry.appendChild(skillIcon);

@@ -42,6 +42,15 @@ interface TagData {
  * 作品一覧を読み込むクラス
  */
 class WorkLoader extends SectionLoader {
+    /**
+     * 記事のタグ一覧
+     */
+    private Tags: {[key: string]: TagData} = {};
+
+    /**
+     * セクション内のコンテンツを取得する真髄の関数
+     * @returns コンテンツを取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
+     */
     protected getContentsCore(): Promise<boolean> {
         return new Promise((resolve: (result: boolean) => void) => {
             fetch("./data/works.json").then((response: Response) => {
@@ -63,8 +72,7 @@ class WorkLoader extends SectionLoader {
                         const articleBottom: HTMLDivElement = document.createElement("div");
                         const articleTags: HTMLDivElement = document.createElement("div");
                         articleTags.classList.add("tags");
-                        /*
-                        entry.tags.forEach((tag: TagData) => {
+                        entry.tags.forEach((tag: string) => {
                             const tagEntry: HTMLDivElement = document.createElement("div");
                             tagEntry.classList.add("tag");
                             const tagIconImage: HTMLImageElement = document.createElement("img");
@@ -72,14 +80,13 @@ class WorkLoader extends SectionLoader {
                             tagEntry.appendChild(tagIconImage);
                             const tagColor: HTMLDivElement = document.createElement("div");
                             tagColor.classList.add("tag_color");
-                            tagColor.style.backgroundColor = typeof(tag.color) == "string" ? tag.color : "#4b";
+                            tagColor.style.backgroundColor = this.Tags[tag]?.color ?? "lightgray";
                             tagEntry.appendChild(tagColor);
                             const tagName: HTMLParagraphElement = document.createElement("p");
-                            tagName.innerText = tag.name;
+                            tagName.innerText = this.Tags[tag]?.name ?? "unknown";
                             tagEntry.appendChild(tagName);
-                            articleTags.appendChild(tagEntry)
+                            articleTags.appendChild(tagEntry);
                         });
-                        */
                         articleBottom.appendChild(articleTags);
                         const moreButton: HTMLButtonElement = document.createElement("button");
                         moreButton.innerText = "More";
@@ -97,6 +104,28 @@ class WorkLoader extends SectionLoader {
                 resolve(false);
             });
         });
+    }
+
+    /**
+     * タグの一覧を読み込む。
+     */
+    private getTags(): Promise<void> {
+        return new Promise((resolve: () => void) => {
+            fetch("./data/tags.json").then((response: Response) => {
+                response.json().then((data: {[key: string]: TagData}) => {
+                    for(let key in data) this.Tags[key] = data[key];
+                    resolve();
+                });
+            });
+        });
+    }
+
+    /**
+     * 初期化関数
+     */
+    public async init(): Promise<void> {
+        await this.getTags();
+        super.init();
     }
 }
 

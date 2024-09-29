@@ -1,11 +1,10 @@
 [
     {
         "thumbnail": "fbac.jpg",
-        "title": "あああ",
-        "description": "いいい",
+        "title": "Figura Blue Archive Characters",
+        "description": "説明文",
         "tags": [
-            "a",
-            "b"
+            "hobby"
         ],
         "article": "bbb.html"
     }
