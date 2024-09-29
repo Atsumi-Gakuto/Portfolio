@@ -7,12 +7,15 @@ interface SkillData {
      */
     name: string;
     /**
-     * スキルを示すアイコンまでのパス。
+     * スキルアイコンのファイル名
      * nullの場合はデフォルトのアイコンを充てる。
      */
     icon?: string;
 }
 
+/**
+ * スキル一覧を読み込むクラス
+ */
 class SkillLoader extends SectionLoader {
     /**
      * コンテンツ読み込み直前に実行される関数
@@ -36,7 +39,6 @@ class SkillLoader extends SectionLoader {
      */
     protected getContentsCore(): Promise<boolean> {
         return new Promise((resolve: (result: boolean) => void) => {
-            const skillArea: HTMLDivElement = document.getElementById("skills") as HTMLDivElement;
             fetch("./data/skills.json").then((response: Response) => {
                 response.json().then((data: SkillData[]) => {
                     data.forEach((entry: SkillData) => {
@@ -48,7 +50,7 @@ class SkillLoader extends SectionLoader {
                         skillName.innerText = entry.name;
                         skillEntry.appendChild(skillIcon);
                         skillEntry.appendChild(skillName);
-                        skillArea.appendChild(skillEntry);
+                        (document.getElementById("skills") as HTMLDivElement).appendChild(skillEntry);
                     });
                     resolve(true);
                 }).catch(() => {
