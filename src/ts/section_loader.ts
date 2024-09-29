@@ -64,7 +64,7 @@ abstract class SectionLoader {
      * 初期化関数
      */
     public init(): void {
-        (document.querySelector(`#${this.LoadFailedArea.id} > button`) as HTMLButtonElement).addEventListener("click", this.getContents);
+        (document.querySelector(`#${this.LoadFailedArea.id} > button`) as HTMLButtonElement).addEventListener("click", () => this.getContents());
         this.getContents();
     }
 }

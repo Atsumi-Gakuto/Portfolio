@@ -1,4 +1,16 @@
 {
+    "lua": {
+        "name": "Lua",
+        "color": "#00007d"
+    },
+    "minecraft": {
+        "name": "Minecraft",
+        "color": "#52a535"
+    },
+    "published_on_github": {
+        "name": "GitHubで公開中",
+        "color": "#161614"
+    },
     "hobby": {
         "name": "趣味",
         "color": null

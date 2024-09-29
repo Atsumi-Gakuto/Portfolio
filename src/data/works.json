@@ -2,8 +2,11 @@
     {
         "thumbnail": "fbac.jpg",
         "title": "Figura Blue Archive Characters",
-        "description": "説明文",
+        "description": "Minecraftで使える、某スマートフォンゲームのキャラクターをモチーフにしたアバターのセットです。",
         "tags": [
+            "lua",
+            "minecraft",
+            "published_on_github",
             "hobby"
         ],
         "article": "bbb.html"

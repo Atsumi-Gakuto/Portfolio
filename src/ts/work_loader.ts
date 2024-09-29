@@ -74,6 +74,7 @@ class WorkLoader extends SectionLoader {
                         articleTags.classList.add("tags");
                         entry.tags.forEach((tag: string) => {
                             const tagEntry: HTMLDivElement = document.createElement("div");
+                            tagEntry.setAttribute("data-tag-name", tag);
                             tagEntry.classList.add("tag");
                             const tagIconImage: HTMLImageElement = document.createElement("img");
                             tagIconImage.src = "./images/icons/tag.svg";
@@ -107,22 +108,35 @@ class WorkLoader extends SectionLoader {
     }
 
     /**
-     * タグの一覧を読み込む。
+     * タグの一覧を取得する中核関数
+     * @returns タグを取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
      */
-    private getTags(): Promise<void> {
-        const tagLoadFail: HTMLDivElement = document.getElementById("tags_load_fail") as HTMLDivElement;
-        tagLoadFail.classList.add("hidden");
-        return new Promise((resolve: () => void) => {
+    private getTagsCore(): Promise<boolean> {
+        return new Promise((resolve: (result: boolean) => void) => {
             fetch("./data/tags.json").then((response: Response) => {
                 response.json().then((data: {[key: string]: TagData}) => {
                     for(let key in data) this.Tags[key] = data[key];
-                    resolve();
+                    resolve(true);
                 }).catch(() => {
-                    tagLoadFail.classList.remove("hidden");
+                    resolve(false);
                 });
             }).catch(() => {
-                tagLoadFail.classList.remove("hidden");
+                resolve(false);
             });
+        });
+    }
+
+    /**
+     * タグの一覧を読み込む。
+     */
+    private async getTags(): Promise<void> {
+        const tagLoadFail: HTMLDivElement = document.getElementById("tags_load_fail") as HTMLDivElement;
+        tagLoadFail.classList.add("hidden");
+        if(!await this.getTagsCore()) tagLoadFail.classList.remove("hidden");
+        document.querySelectorAll(".tag").forEach((element: Element) => {
+            const tagName: string = element.getAttribute("data-tag-name")!;
+            (element.children.item(1) as HTMLDivElement).style.backgroundColor = this.Tags[tagName]?.color ?? "lightgray";
+            (element.children.item(2) as HTMLDivElement).innerText = this.Tags[tagName]?.name ?? "unknown";
         });
     }
 
@@ -130,7 +144,7 @@ class WorkLoader extends SectionLoader {
      * 初期化関数
      */
     public async init(): Promise<void> {
-        (document.querySelector("#tags_load_fail > button") as HTMLDivElement).addEventListener("click", this.getTags);
+        (document.querySelector("#tags_load_fail > button") as HTMLDivElement).addEventListener("click", () => this.getTags());
         await this.getTags();
         super.init();
     }
