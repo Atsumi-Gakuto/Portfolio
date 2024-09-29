@@ -8,6 +8,11 @@ a {
     text-decoration:  none;
 }
 
+/* 汎用クラス */
+.hidden {
+    display: none !important;
+}
+
 /* ヘッダー */
 header {
     width: calc(100vw - 40px);
@@ -103,7 +108,7 @@ main {
     height: 8px;
     margin-right: 5px;
     background-color: black;
-    border-radius: 8px;
+    border-radius: 50%;
 }
 
 .profile_value {
@@ -115,6 +120,58 @@ main {
     width: 300px;
     border-radius: 16px;
     box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* 読込中表示 */
+.loading {
+    display: flex;
+    align-items: center;
+}
+
+.loading > p {
+    font-size: large;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.loading_icon {
+    position: relative;
+}
+
+.loading_icon_back {
+    width: 20px;
+    height: 20px;
+    border: solid 3px lightgray;
+    border-radius: 50%;
+}
+
+.loading_icon_front {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 0;
+    left: 0;
+    transform-origin: 100% 100%;
+    overflow: hidden;
+    animation: 0.5s linear infinite loading_icon_anim;
+}
+
+@keyframes loading_icon_anim {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.loading_icon_front::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid 3px black;
 }
 
 /* SKILLSセクション */
