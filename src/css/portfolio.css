@@ -50,11 +50,14 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: calc(100vw - 40px);
+    padding: 0 20px;
 }
 
 .headline {
     display: flex;
-    width: 620px;
+    width: 100%;
+    max-width: 800px;
     align-items: center;
 }
 
@@ -68,4 +71,45 @@ main {
     flex-grow: 1;
     height: 4px;
     background-color: black;
+}
+
+/* ABOUTセクション */
+#about_me {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+#profile {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.profile_key {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.profile_key::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.profile_value {
+    margin: 0 0 24px 30px;
+    font-size: x-large;
+}
+
+#my_photo {
+    width: 300px;
+    border-radius: 16px;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.25);
 }
