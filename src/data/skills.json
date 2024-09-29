@@ -12,6 +12,10 @@
         "icon": "nodejs.svg"
     },
     {
+        "name": "Lua",
+        "icon": "lua.svg"
+    },
+    {
         "name": "C",
         "icon": "c.svg"
     },
