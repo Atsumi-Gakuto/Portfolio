@@ -3,13 +3,9 @@ body {
     margin: 0;
 }
 
-button {
-    display: block;
+a {
     color: unset;
-    background-color: transparent;
-    font-weight: unset;
-    border: none;
-    cursor: pointer;
+    text-decoration:  none;
 }
 
 /* ヘッダー */
@@ -36,13 +32,40 @@ nav {
     height: 100%;
 }
 
-nav > button {
-    width: 100px;
+nav > a {
+    width: 110px;
+    line-height: 60px;
+    text-align: center;
     font-weight: bold;
     transition: 0.25s;
 }
 
-nav > button:hover {
+nav > a:hover {
     color: black;
     background-color: white;
+}
+
+/* メイン記事 */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headline {
+    display: flex;
+    width: 620px;
+    align-items: center;
+}
+
+.headline > h1 {
+    margin: 20px 40px;
+    text-align: center;
+}
+
+.headline_line {
+    display: block;
+    flex-grow: 1;
+    height: 4px;
+    background-color: black;
 }
