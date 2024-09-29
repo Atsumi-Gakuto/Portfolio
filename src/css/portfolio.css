@@ -8,9 +8,23 @@ a {
     text-decoration:  none;
 }
 
+button {
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}
+
 /* 汎用クラス */
 .hidden {
     display: none !important;
+}
+
+.button_black {
+    padding: 10px 20px;
+    color: white;
+    background-color: black;
+    font-size: large;
+    font-weight: bold;
 }
 
 /* ヘッダー */
@@ -172,6 +186,18 @@ main {
     height: 20px;
     border-radius: 50%;
     border: solid 3px black;
+}
+
+/* 読み込み失敗表示 */
+.load_fail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.load_fail > p {
+    font-size: large;
+    font-weight: bold;
 }
 
 /* SKILLSセクション */

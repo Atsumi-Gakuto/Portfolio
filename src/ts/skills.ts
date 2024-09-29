@@ -17,9 +17,11 @@ interface SkillData {
  * スキルセクションの内容を取得する。
  */
 function getSkills(): void {
-    const loadingIcon: HTMLDivElement = document.getElementById("skills_loading") as HTMLDivElement;
+    const loadingArea: HTMLDivElement = document.getElementById("skills_loading") as HTMLDivElement;
+    const loadFailArea = document.getElementById("skills_load_fail") as HTMLDivElement;
     const skillArea: HTMLDivElement = document.getElementById("skills") as HTMLDivElement;
-    loadingIcon.classList.remove("hidden");
+    loadingArea.classList.remove("hidden");
+    loadFailArea.classList.add("hidden");
     skillArea.classList.add("hidden");
     while(skillArea.children.length > 0) skillArea.children.item(0)!.remove();
     fetch("./data/skills.json").then((response: Response) => {
@@ -34,9 +36,15 @@ function getSkills(): void {
                 skillEntry.appendChild(skillName);
                 skillArea.appendChild(skillEntry);
             });
-            loadingIcon.classList.add("hidden");
+            loadingArea.classList.add("hidden");
             skillArea.classList.remove("hidden");
+        }).catch((reason: any) => {
+            loadingArea.classList.add("hidden");
+            loadFailArea.classList.remove("hidden");
         });
+    }).catch((reason: any) => {
+        loadingArea.classList.add("hidden");
+        loadFailArea.classList.remove("hidden");
     });
 }
 
@@ -44,6 +52,7 @@ function getSkills(): void {
  * 初期化関数
  */
 function init(): void {
+    (document.getElementById("skills_try_again_button") as HTMLButtonElement).addEventListener("click", (event: MouseEvent) => getSkills());
     getSkills();
 }
 
