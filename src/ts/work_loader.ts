@@ -25,20 +25,6 @@ interface WorkData {
 }
 
 /**
- * タグのデータ構造
- */
-interface TagData {
-    /**
-     * タグ名
-     */
-    name: string;
-    /**
-     * タグ色のカラーコード。nullの場合はデフォルトの色にする。
-     */
-    color?: string;
-}
-
-/**
  * 作品一覧を読み込むクラス
  */
 class WorkLoader extends SectionLoader {
@@ -48,12 +34,10 @@ class WorkLoader extends SectionLoader {
     private readonly parent: Main;
 
     /**
-     * 記事のタグ一覧
-     */
-    private Tags: {[key: string]: TagData} = {};
-
-    /**
      * コンストラクタ
+     * @param parent 親のメインクラスへの参照子
+     * @param loadingArea 「読み込み中」を表示しているdiv要素
+     * @param loadFailedArea 「読み込み失敗」を表示しているdiv要素
      */
     constructor(parent: Main, loadingArea: HTMLDivElement, loadFailedArea: HTMLDivElement) {
         super(loadingArea, loadFailedArea);
@@ -61,8 +45,8 @@ class WorkLoader extends SectionLoader {
     }
 
     /**
-     * セクション内のコンテンツを取得する真髄の関数
-     * @returns コンテンツを取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
+     * 作品一覧を取得する真髄の関数
+     * @returns 作品一覧の取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
      */
     protected getContentsCore(): Promise<boolean> {
         return new Promise((resolve: (result: boolean) => void) => {
@@ -85,30 +69,18 @@ class WorkLoader extends SectionLoader {
                         const articleBottom: HTMLDivElement = document.createElement("div");
                         const articleTags: HTMLDivElement = document.createElement("div");
                         articleTags.classList.add("tags");
-                        entry.tags.forEach((tag: string) => {
-                            const tagEntry: HTMLDivElement = document.createElement("div");
-                            tagEntry.setAttribute("data-tag-name", tag);
-                            tagEntry.classList.add("tag");
-                            const tagIconImage: HTMLImageElement = document.createElement("img");
-                            tagIconImage.src = "./images/icons/tag.svg";
-                            tagEntry.appendChild(tagIconImage);
-                            const tagColor: HTMLDivElement = document.createElement("div");
-                            tagColor.classList.add("tag_color");
-                            tagColor.style.backgroundColor = this.Tags[tag]?.color ?? "lightgray";
-                            tagEntry.appendChild(tagColor);
-                            const tagName: HTMLParagraphElement = document.createElement("p");
-                            tagName.innerText = this.Tags[tag]?.name ?? "unknown";
-                            tagEntry.appendChild(tagName);
-                            articleTags.appendChild(tagEntry);
-                        });
+                        entry.tags.forEach((tagName: string) => this.parent.tagManager.insertTagElement(articleTags, tagName, true));
                         articleBottom.appendChild(articleTags);
                         const moreButton: HTMLButtonElement = document.createElement("button");
                         moreButton.innerText = "More";
                         moreButton.addEventListener("click", () => {
+                            const tagsNames: string[] = [];
+                            Array.prototype.forEach.call(articleTags.children, (child: HTMLDivElement) => tagsNames.push(child.getAttribute("data-tag-name")!));
                             this.parent.popupManager.showArticle({
                                 thumbnail: `./images/article_thumbnails/${entry.thumbnail}`,
                                 title: entry.title,
-                                body: `./article_html/${entry.article}`
+                                body: `./article_html/${entry.article}`,
+                                tagNames: tagsNames
                             });
                         });
                         moreButton.classList.add("article_more_button", "button_black");
@@ -125,47 +97,5 @@ class WorkLoader extends SectionLoader {
                 resolve(false);
             });
         });
-    }
-
-    /**
-     * タグの一覧を取得する中核関数
-     * @returns タグを取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
-     */
-    private getTagsCore(): Promise<boolean> {
-        return new Promise((resolve: (result: boolean) => void) => {
-            fetch("./data/tags.json").then((response: Response) => {
-                response.json().then((data: {[key: string]: TagData}) => {
-                    for(let key in data) this.Tags[key] = data[key];
-                    resolve(true);
-                }).catch(() => {
-                    resolve(false);
-                });
-            }).catch(() => {
-                resolve(false);
-            });
-        });
-    }
-
-    /**
-     * タグの一覧を読み込む。
-     */
-    private async getTags(): Promise<void> {
-        const tagLoadFail: HTMLDivElement = document.getElementById("tags_load_fail") as HTMLDivElement;
-        tagLoadFail.classList.add("hidden");
-        if(!await this.getTagsCore()) tagLoadFail.classList.remove("hidden");
-        document.querySelectorAll(".tag").forEach((element: Element) => {
-            const tagName: string = element.getAttribute("data-tag-name")!;
-            (element.children.item(1) as HTMLDivElement).style.backgroundColor = this.Tags[tagName]?.color ?? "lightgray";
-            (element.children.item(2) as HTMLDivElement).innerText = this.Tags[tagName]?.name ?? "unknown";
-        });
-    }
-
-    /**
-     * 初期化関数
-     */
-    public async init(): Promise<void> {
-        (document.querySelector("#tags_load_fail > button") as HTMLDivElement).addEventListener("click", () => this.getTags());
-        await this.getTags();
-        super.init();
     }
 }

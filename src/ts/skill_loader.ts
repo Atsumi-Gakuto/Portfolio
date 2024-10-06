@@ -18,7 +18,7 @@ interface SkillData {
  */
 class SkillLoader extends SectionLoader {
     /**
-     * コンテンツ読み込み直前に実行される関数
+     * スキル一覧を読み込む直前に実行される関数
      */
     protected onBeforeLoad(): void {
         super.onBeforeLoad();
@@ -26,7 +26,7 @@ class SkillLoader extends SectionLoader {
     }
 
     /**
-     * コンテンツの読込に成功した時に実行される関数
+     * スキル一覧の読み込みに成功した時に実行される関数
      */
     protected onLoadSucceeded(): void {
         super.onLoadSucceeded();
@@ -34,8 +34,8 @@ class SkillLoader extends SectionLoader {
     }
 
     /**
-     * セクション内のコンテンツを取得する真髄の関数
-     * @returns コンテンツを取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
+     * スキル一覧を取得する真髄の関数
+     * @returns スキル一覧の取得に成功した場合は`true`、失敗した場合は`false`をPromiseで返す。
      */
     protected getContentsCore(): Promise<boolean> {
         return new Promise((resolve: (result: boolean) => void) => {

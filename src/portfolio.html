@@ -6,6 +6,7 @@
         <script src="./js/about_manager.js"></script>
         <script src="./js/section_loader.js"></script>
         <script src="./js/skill_loader.js"></script>
+        <script src="./js/tag_loader.js"></script>
         <script src="./js/work_loader.js"></script>
         <script src="./js/popup_manager.js"></script>
         <script defer src="./js/main.js"></script>
@@ -94,9 +95,12 @@
                     <div id="article_scroll_area">
                         <img id="article_image">
                         <div id="article_content">
-                            <h1 id="article_title"></h1>
                             <div id="article_body">
+                                <h1 id="article_title"></h1>
                                 <iframe id="article_body_html"></iframe>
+                            </div>
+                            <div id="article_footer">
+                                <div id="article_tags" class="tags"></div>
                                 <button id="article_close_button" class="article_close_button button_black">Close</button>
                             </div>
                         </div>

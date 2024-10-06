@@ -14,12 +14,29 @@ interface PopupArticleData {
      * 記事の本文のhtmlまでのパス
      */
     body: string;
+    /**
+     * 記事に付けられているタグの名前の配列
+     */
+    tagNames: string[];
 }
 
 /**
  * ポップアップを管理するクラス
  */
 class PopupManager {
+    /**
+     * 親のメインクラス
+     */
+    private readonly parent: Main;
+
+    /**
+     * コンストラクタ
+     * @param parent 親のメインクラスへの参照子
+     */
+    constructor(parent: Main) {
+        this.parent = parent;
+    }
+
     /**
      * 記事のポップアップを表示される。
      * @param articleData 表示する記事のデータ
@@ -28,6 +45,9 @@ class PopupManager {
         (document.getElementById("article_image") as HTMLImageElement).src = articleData.thumbnail;
         (document.getElementById("article_title") as HTMLHeadingElement).innerText = articleData.title;
         (document.getElementById("article_body_html") as HTMLIFrameElement).src = articleData.body;
+        const tagArea: HTMLDivElement = document.getElementById("article_tags") as HTMLDivElement;
+        while(tagArea.children.length > 0) tagArea.children.item(0)!.remove();
+        articleData.tagNames.forEach((tagName: string) => this.parent.tagManager.insertTagElement(tagArea, tagName, false));
         (document.getElementById("popup_area") as HTMLDivElement).classList.remove("hidden");
         setTimeout(() => {
             (document.getElementById("popup_background") as HTMLDivElement).classList.add("popup_transition");
