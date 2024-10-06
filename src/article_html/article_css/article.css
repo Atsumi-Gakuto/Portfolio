@@ -1,0 +1,19 @@
+/* 記事共通のスタイルシート */
+
+.github_link {
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+    word-break: break-all;
+}
+
+.github_link::before {
+    content: '';
+    display: block;
+    width: 1.5em;
+    aspect-ratio: 1 / 1;
+    margin-right: 5px;
+    background-image: url('../../images/skill_icons/github.svg');
+    background-position: center;
+    background-size: contain;
+}
