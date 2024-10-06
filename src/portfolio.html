@@ -3,10 +3,12 @@
     <head>
         <title>My Portfolio</title>
         <meta charset="utf-8">
-        <script defer src="./js/about_manager.js"></script>
-        <script defer src="./js/section_loader.js"></script>
-        <script defer src="./js/skill_loader.js"></script>
-        <script defer src="./js/work_loader.js"></script>
+        <script src="./js/about_manager.js"></script>
+        <script src="./js/section_loader.js"></script>
+        <script src="./js/skill_loader.js"></script>
+        <script src="./js/work_loader.js"></script>
+        <script src="./js/popup_manager.js"></script>
+        <script defer src="./js/main.js"></script>
         <link rel="stylesheet" href="./css/portfolio.css">
     </head>
     <body>
@@ -84,15 +86,15 @@
                 </div>
             </div>
         </main>
-        <div id="popup_area">
+        <div id="popup_area" class="hidden">
             <div id="popup_background"></div>
             <div id="popup_content">
                 <input id="popup_close_button" class="article_close_button" type="image" src="./images/icons/close.svg">
                 <div id="article_area">
                     <div id="article_scroll_area">
-                        <img id="article_image" src="./images/article_thumbnails/fbac.jpg">
+                        <img id="article_image">
                         <div id="article_content">
-                            <h1 id="article_title">タイトル</h1>
+                            <h1 id="article_title"></h1>
                             <div id="article_body">
                                 <iframe id="article_body_html"></iframe>
                                 <button id="article_close_button" class="article_close_button button_black">Close</button>

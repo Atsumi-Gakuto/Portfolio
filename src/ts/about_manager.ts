@@ -12,5 +12,3 @@ class AboutManager {
         (document.getElementById("school_years") as HTMLSpanElement).innerText = (today.getUTCFullYear() - 2024 + (today.getUTCMonth() + 1 >= 4 ? 1 : 0)).toString();
     }
 }
-
-new AboutManager().init();

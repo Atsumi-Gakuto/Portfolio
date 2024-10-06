@@ -43,9 +43,22 @@ interface TagData {
  */
 class WorkLoader extends SectionLoader {
     /**
+     * 親のメインクラス
+     */
+    private readonly parent: Main;
+
+    /**
      * 記事のタグ一覧
      */
     private Tags: {[key: string]: TagData} = {};
+
+    /**
+     * コンストラクタ
+     */
+    constructor(parent: Main, loadingArea: HTMLDivElement, loadFailedArea: HTMLDivElement) {
+        super(loadingArea, loadFailedArea);
+        this.parent = parent;
+    }
 
     /**
      * セクション内のコンテンツを取得する真髄の関数
@@ -91,6 +104,13 @@ class WorkLoader extends SectionLoader {
                         articleBottom.appendChild(articleTags);
                         const moreButton: HTMLButtonElement = document.createElement("button");
                         moreButton.innerText = "More";
+                        moreButton.addEventListener("click", () => {
+                            this.parent.popupManager.showArticle({
+                                thumbnail: `./images/article_thumbnails/${entry.thumbnail}`,
+                                title: entry.title,
+                                body: `./article_html/${entry.article}`
+                            });
+                        });
                         moreButton.classList.add("article_more_button", "button_black");
                         articleBottom.appendChild(moreButton);
                         articleSummary.appendChild(articleBottom);
@@ -149,5 +169,3 @@ class WorkLoader extends SectionLoader {
         super.init();
     }
 }
-
-new WorkLoader(document.getElementById("works_loading") as HTMLDivElement, document.getElementById("works_load_fail") as HTMLDivElement).init();

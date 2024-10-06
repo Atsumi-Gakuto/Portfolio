@@ -62,5 +62,3 @@ class SkillLoader extends SectionLoader {
         });
     }
 }
-
-new SkillLoader(document.getElementById("skills_loading") as HTMLDivElement, document.getElementById("skills_load_fail") as HTMLDivElement).init();
