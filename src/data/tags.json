@@ -3,9 +3,37 @@
         "name": "Lua",
         "color": "#00007d"
     },
+    "cs": {
+        "name": "C#",
+        "color": "#390091"
+    },
+    "python": {
+        "name": "Python",
+        "color": "#ffd94a"
+    },
+    "unity": {
+        "name": "Unity",
+        "color": "#222c37"
+    },
+    "raspi": {
+        "name": "Raspberry Pi",
+        "color": "#bc1142"
+    },
     "minecraft": {
         "name": "Minecraft",
         "color": "#52a535"
+    },
+    "micon_programming": {
+        "name": "マイコンプログラミング",
+        "color": "#10ab4b"
+    },
+    "solo_development": {
+        "name": "個人開発",
+        "color": null
+    },
+    "team_development": {
+        "name": "チーム開発",
+        "color": null
     },
     "published_on_github": {
         "name": "GitHubで公開中",

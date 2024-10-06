@@ -131,3 +131,4 @@ dist
 
 # ユーザ定義
 src/js/*
+.vscode/*
