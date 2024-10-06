@@ -338,6 +338,11 @@ main {
 #popup_background {
     width: 100%;
     height: 100%;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+#popup_background.popup_transition {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -349,9 +354,15 @@ main {
     width: calc(100% - 40px);
     max-width: 800px;
     height: calc(100% - 50px);
-    top: 50%;
+    top: 150%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+#popup_content.popup_transition {
+    top: 50%;
+    transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
 #popup_close_button {

@@ -29,13 +29,22 @@ class PopupManager {
         (document.getElementById("article_title") as HTMLHeadingElement).innerText = articleData.title;
         (document.getElementById("article_body_html") as HTMLIFrameElement).src = articleData.body;
         (document.getElementById("popup_area") as HTMLDivElement).classList.remove("hidden");
+        setTimeout(() => {
+            (document.getElementById("popup_background") as HTMLDivElement).classList.add("popup_transition");
+            (document.getElementById("popup_content") as HTMLDivElement).classList.add("popup_transition");
+        }, 1);
     }
 
     /**
      * 記事のポップアップを閉じる。
      */
     public closeArticle(): void {
-        (document.getElementById("popup_area") as HTMLDivElement).classList.add("hidden");
+        const popupBackground:  HTMLDivElement = document.getElementById("popup_background") as HTMLDivElement;
+        popupBackground.classList.remove("popup_transition");
+        (document.getElementById("popup_content") as HTMLDivElement).classList.remove("popup_transition");
+        popupBackground.addEventListener("transitionend", () => (document.getElementById("popup_area") as HTMLDivElement).classList.add("hidden"), {
+            once: true
+        });
     }
 
     /**
