@@ -420,6 +420,13 @@ main {
     margin: 0;
 }
 
+#no_article_message {
+    margin: 0;
+    color: gray;
+    font-size: x-large;
+    font-weight: bold;
+}
+
 /* 記事表示エリア */
 #popup_area {
     position: fixed;

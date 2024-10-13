@@ -34,9 +34,12 @@ class TagFilterManager {
                 if(shouldShowArticle) article.classList.remove("hidden");
                 else article.classList.add("hidden");
             });
+            if(document.querySelectorAll("#works > div:not(.hidden)").length == 0) (document.getElementById("no_article_message") as HTMLParagraphElement).classList.remove("hidden");
+            else (document.getElementById("no_article_message") as HTMLParagraphElement).classList.add("hidden");
         }
         else {
             Array.prototype.forEach.call((document.getElementById("works") as HTMLDivElement).children, (article: HTMLDivElement) => article.classList.remove("hidden"));
+            (document.getElementById("no_article_message") as HTMLParagraphElement).classList.add("hidden");
         }
     }
 
