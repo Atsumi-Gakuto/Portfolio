@@ -475,6 +475,7 @@ main {
 
 /* 記事一覧 */
 #works {
+    margin-bottom: 4px;
     column-count: 2;
     column-gap: 10px;
     -webkit-column-count: 2;
