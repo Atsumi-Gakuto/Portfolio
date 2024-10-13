@@ -71,7 +71,7 @@ class PopupManager {
             }, { once: true });
             const tagArea: HTMLDivElement = document.getElementById("article_tags") as HTMLDivElement;
             while(tagArea.children.length > 0) tagArea.children.item(0)!.remove();
-            articleData.tagNames.forEach((tagName: string) => this.parent.tagManager.insertTagElement(tagArea, tagName, false));
+            articleData.tagNames.forEach((tagName: string) => tagArea.appendChild(this.parent.tagManager.getTagElement(tagName, false)));
             (document.getElementById("popup_area") as HTMLDivElement).classList.remove("hidden");
             setTimeout(() => {
                 const popupBackground:  HTMLDivElement = document.getElementById("popup_background") as HTMLDivElement;

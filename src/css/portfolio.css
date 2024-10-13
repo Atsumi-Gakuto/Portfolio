@@ -291,7 +291,8 @@ main {
     gap: 10px;
     width: calc(100% - 20px);
     padding: 10px;
-    background-color: gainsboro;
+    background-color: white;
+    border: solid 1px lightgray;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -305,7 +306,7 @@ main {
 #tag_filter_clear_button {
     width: calc(1rlh - 8px);
     height: calc(1rlh - 8px);
-    margin: 6px 0;
+    padding: 6px;
 }
 
 #tag_filter_clear_button:disabled {
@@ -314,6 +315,20 @@ main {
 
 #tag_filter_list_area > div {
     cursor: pointer;
+}
+
+.clickable_tag:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    filter: brightness(85%);
+}
+
+.clickable_tag > * {
+    pointer-events: none;
+}
+
+.selected_tag {
+    border-color: gold !important;
+    background-color: lightyellow !important;
 }
 
 /* 記事一覧 */

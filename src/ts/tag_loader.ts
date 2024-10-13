@@ -68,12 +68,12 @@ class TagLoader extends SectionLoader {
     }
 
     /**
-     * ターゲットのdiv要素にタグ表示を挿入する。
+     * タグを示すdiv要素を返す。
      * @param targetParent タグ表示を挿入する目標のdiv要素
      * @param tagName 挿入するタグの内部名
      * @param shouldRefreshable this.getTags()実行時にタグ情報の更新対象にするかどうかを設定する。
      */
-    public insertTagElement(targetParent: HTMLDivElement, tagName: string, shouldRefreshable: boolean) {
+    public getTagElement(tagName: string, shouldRefreshable: boolean): HTMLDivElement {
         const tagEntry: HTMLDivElement = document.createElement("div");
         tagEntry.classList.add("tag");
         if(shouldRefreshable) {
@@ -90,7 +90,7 @@ class TagLoader extends SectionLoader {
         const tagNameElement: HTMLParagraphElement = document.createElement("p");
         tagNameElement.innerText = this.Tags[tagName]?.name ?? "unknown";
         tagEntry.appendChild(tagNameElement);
-        targetParent.appendChild(tagEntry);
+        return tagEntry;
     }
 
     /**

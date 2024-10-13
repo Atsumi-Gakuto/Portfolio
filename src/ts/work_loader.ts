@@ -69,7 +69,7 @@ class WorkLoader extends SectionLoader {
                         const articleBottom: HTMLDivElement = document.createElement("div");
                         const articleTags: HTMLDivElement = document.createElement("div");
                         articleTags.classList.add("tags");
-                        entry.tags.forEach((tagName: string) => this.parent.tagManager.insertTagElement(articleTags, tagName, true));
+                        entry.tags.forEach((tagName: string) => articleTags.appendChild(this.parent.tagManager.getTagElement(tagName, true)));
                         articleBottom.appendChild(articleTags);
                         const moreButton: HTMLButtonElement = document.createElement("button");
                         moreButton.innerText = "More";
