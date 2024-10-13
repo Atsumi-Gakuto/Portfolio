@@ -26,20 +26,26 @@ class TagFilterManager {
             tagElement.classList.add("clickable_tag");
             tagElement.addEventListener("click", (event: MouseEvent) => {
                 if((event.target as HTMLDivElement).classList.contains("selected_tag")) {
-                    (document.querySelector(`#tag_filter_selected_tags > div[data-tag-name=${(event.target as HTMLDivElement).getAttribute("data-tag-name")}]`) as HTMLDivElement).remove();
+                    const tagName: string = (event.target as HTMLDivElement).getAttribute("data-tag-name")!;
+                    (document.querySelector(`#tag_filter_selected_tags > div[data-tag-name=${tagName}]`) as HTMLDivElement).remove();
                     (document.getElementById("tag_filter_clear_button") as HTMLInputElement).disabled = (document.getElementById("tag_filter_selected_tags") as HTMLDivElement).children.length == 0;
+                    console.log(tagName);
+                    document.querySelectorAll(`div[data-tag-name=${tagName}]`).forEach((element: Element) => element.classList.remove("selected_tag"));
                 }
                 else {
                     const tagElement2: HTMLDivElement = (event.target as HTMLDivElement).cloneNode(true) as HTMLDivElement;
                     tagElement2.addEventListener("click", () => {
-                        (document.querySelector(`#tag_filter_list_area > div[data-tag-name=${tagElement2.getAttribute("data-tag-name")}]`) as HTMLDivElement).classList.remove("selected_tag");
+                        const tagName: string = tagElement2.getAttribute("data-tag-name")!;
+                        (document.querySelector(`#tag_filter_list_area > div[data-tag-name=${tagName}]`) as HTMLDivElement).classList.remove("selected_tag");
                         tagElement2.remove();
                         (document.getElementById("tag_filter_clear_button") as HTMLInputElement).disabled = (document.getElementById("tag_filter_selected_tags") as HTMLDivElement).children.length == 0;
+                        document.querySelectorAll(`div[data-tag-name=${tagName}]`).forEach((element: Element) => element.classList.remove("selected_tag"));
                     });
                     (document.getElementById("tag_filter_selected_tags") as HTMLDivElement).appendChild(tagElement2);
                     (document.getElementById("tag_filter_clear_button") as HTMLInputElement).disabled = false;
+                    document.querySelectorAll(`div[data-tag-name=${(event.target as HTMLDivElement).getAttribute("data-tag-name")}]`).forEach((element: Element) => element.classList.add("selected_tag"));
+                    tagElement2.classList.remove("selected_tag");
                 }
-                (event.target as HTMLDivElement).classList.toggle("selected_tag");
             });
             tagArea.appendChild(tagElement);
         }
@@ -53,7 +59,7 @@ class TagFilterManager {
             const selectedTagArea = document.getElementById("tag_filter_selected_tags") as HTMLDivElement;
             while(selectedTagArea.children.length > 0) selectedTagArea.children.item(0)!.remove();
             (document.getElementById("tag_filter_clear_button") as HTMLInputElement).disabled = true;
-            document.querySelectorAll("#tag_filter_list_area > .selected_tag").forEach((element: Element) => element.classList.remove("selected_tag"));
+            document.querySelectorAll(".selected_tag").forEach((element: Element) => element.classList.remove("selected_tag"));
         });
     }
 }
