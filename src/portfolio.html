@@ -41,19 +41,19 @@
                     <div id="contacts">
                         <a href="mailto:b24702bb@aitech.ac.jp" target="_blank" rel="noreferrer noopener">
                             <img src="./images/icons/email.svg">
-                            <p>Eメール<br>b24702bb@aitech.ac.jp</p>
+                            <p class="bubble_tip">Eメール<br>b24702bb@aitech.ac.jp</p>
                         </a>
                         <a href="https://github.com/Gakuto1112" target="_blank" rel="noreferrer noopener">
                             <img src="./images/skill_icons/github.svg">
-                            <p>個人用GitHubアカウント</p>
+                            <p class="bubble_tip">個人用GitHubアカウント</p>
                         </a>
                         <a href="https://github.com/Atsumi-Gakuto" target="_blank" rel="noreferrer noopener">
                             <img src="./images/skill_icons/github.svg">
-                            <p>学校用GitHubアカウント</p>
+                            <p class="bubble_tip">学校用GitHubアカウント</p>
                         </a>
                         <a href="https://x.com/Gakuto1112" target="_blank" rel="noreferrer noopener">
                             <img src="./images/icons/x.svg">
-                            <p>X (旧Twitter)</p>
+                            <p class="bubble_tip">X (旧Twitter)</p>
                         </a>
                     </div>
                 </div>
@@ -110,12 +110,20 @@
                 <p id="no_article_message" class="hidden">No article with selected tags found</p>
             </div>
         </main>
+        <div id="compact_nav_menu" class="bubble_tip hidden">
+            <a class="header_button" href="#headline_about">ABOUT</a>
+            <a class="header_button" href="#headline_skills">SKILLS</a>
+            <a class="header_button" href="#headline_works">WORKS</a>
+        </div>
         <header>
             <p class="header_title">Gakuto's Portfolio</p>
             <nav>
-                <a href="#headline_about">ABOUT</a>
-                <a href="#headline_skills">SKILLS</a>
-                <a href="#headline_works">WORKS</a>
+                <div id="standard_nav">
+                    <a class="header_button" href="#headline_about">ABOUT</a>
+                    <a class="header_button" href="#headline_skills">SKILLS</a>
+                    <a class="header_button" href="#headline_works">WORKS</a>
+                </div>
+                <img id="compact_nav" class="header_button" src="./images/icons/menu.svg">
             </nav>
         </header>
         <div id="popup_area" class="hidden">
