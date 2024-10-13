@@ -21,6 +21,7 @@ class Main {
      * 初期化関数
      */
     public async init(): Promise<void> {
+        new HeaderManager().init();
         new AboutManager().init();
         new SkillLoader(document.getElementById("skills_loading") as HTMLDivElement, document.getElementById("skills_load_fail") as HTMLDivElement).init();
         await this.tagManager.init();
