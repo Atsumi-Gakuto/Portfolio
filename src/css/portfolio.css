@@ -433,7 +433,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: calc(100% - 10px);
+    width: calc(100% - 100px);
     height: max-content;
     min-height: calc(100% - 320px);
     margin-top: 10px;
