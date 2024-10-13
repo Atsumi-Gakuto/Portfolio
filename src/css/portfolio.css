@@ -86,11 +86,18 @@ main {
     flex-direction: column;
     align-items: center;
     width: calc(100% - 40px);
+    min-width: 395px;
     max-width: 800px;
     margin: 60px 0 20px 0;
     padding: 0 20px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+@media (min-width: 400px) {
+    main {
+        overflow-x: hidden;
+    }
 }
 
 .headline {
@@ -124,6 +131,13 @@ main {
     display: flex;
     align-items: start;
     gap: 20px;
+}
+
+@media (max-width: 500px) {
+    #about_me {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 }
 
 #profile {
@@ -210,12 +224,6 @@ main {
     transform: translate(-50%, -100%);
     border: solid 10px transparent;
     border-bottom: solid 10px black;
-}
-
-#contacts > a::after {
-
-
-
 }
 
 #contacts > a > img {
