@@ -154,10 +154,73 @@ main {
     font-size: x-large;
 }
 
+#photo_and_contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 #my_photo {
     width: 300px;
     border-radius: 16px;
     box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+#contacts {
+    display: flex;
+    justify-content: space-around;
+}
+
+#contacts > a {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+#contacts > a:hover > p {
+    visibility: visible;
+    opacity: 100%;
+}
+
+#contacts > a > p {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 5px 20px;
+    left: 50%;
+    bottom: -15px;
+    transform: translate(-50%, 100%);
+    color: white;
+    text-align: center;
+    text-wrap: nowrap;
+    background-color: black;
+    border-radius: 8px;
+    visibility: hidden;
+    opacity: 0%;
+    transition: 0.5s;
+}
+
+#contacts > a > p::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    border: solid 10px transparent;
+    border-bottom: solid 10px black;
+}
+
+#contacts > a::after {
+
+
+
+}
+
+#contacts > a > img {
+    width: 100%;
+    height: 100%;
 }
 
 /* 読込中表示 */
