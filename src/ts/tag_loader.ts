@@ -17,16 +17,22 @@ interface TagData {
  */
 class TagLoader extends SectionLoader {
     /**
+     * 親のメインクラス
+     */
+    private readonly parent: Main;
+
+    /**
      * タグ一覧を保持する変数
      */
-    private Tags: {[key: string]: TagData} = {};
+    public Tags: {[key: string]: TagData} = {};
 
     /**
      * コンストラクタ
      * @param loadFailedArea 「読み込み失敗」を表示しているdiv要素
      */
-    constructor(loadFailedArea: HTMLDivElement) {
+    constructor(parent: Main, loadFailedArea: HTMLDivElement) {
         super(document.createElement("div"), loadFailedArea);
+        this.parent = parent;
     }
 
     /**
@@ -94,5 +100,6 @@ class TagLoader extends SectionLoader {
         (document.querySelector("#tags_load_fail > button") as HTMLDivElement).addEventListener("click", () => this.getTags());
         await this.getTags();
         super.init();
+        this.parent.tagFilterManager.insertTagElements();
     }
 }

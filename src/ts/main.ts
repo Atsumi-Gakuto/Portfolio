@@ -5,7 +5,12 @@ class Main {
     /**
      * タグマネージャ
      */
-    public readonly tagManager: TagLoader = new TagLoader(document.getElementById("tags_load_fail") as HTMLDivElement);
+    public readonly tagManager: TagLoader = new TagLoader(this, document.getElementById("tags_load_fail") as HTMLDivElement);
+
+    /**
+     * タグフィルターマネージャ
+     */
+    public readonly tagFilterManager: TagFilterManager = new TagFilterManager(this);
 
     /**
      * ポップアップマネージャ
