@@ -15,6 +15,10 @@
         "name": "Arduino言語",
         "color": "#00979c"
     },
+    "c": {
+        "name": "C言語",
+        "color": "#00599c"
+    },
     "unity": {
         "name": "Unity",
         "color": "#222c37"
@@ -30,6 +34,14 @@
     "leafony": {
         "name": "Leafony",
         "color": "#309b18"
+    },
+    "psoc": {
+        "name": "PSoC",
+        "color": "#3d89c3"
+    },
+    "ble": {
+        "name": "BLE",
+        "color": "#0b3b8d"
     },
     "minecraft": {
         "name": "Minecraft",
@@ -50,6 +62,10 @@
     "published_on_github": {
         "name": "GitHubで公開中",
         "color": "#161614"
+    },
+    "grad_study": {
+        "name": "卒業研究",
+        "color": null
     },
     "contest": {
         "name": "コンテスト作品",

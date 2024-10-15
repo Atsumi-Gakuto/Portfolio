@@ -29,6 +29,20 @@
         "article": "tyoumizanryou.html"
     },
     {
+        "thumbnail": "iotsm.jpg",
+        "title": "複数サービスから同時利用可能なIoTセンサーモジュールフレームワーク",
+        "description": "Bluetooth Low Energy通信を用いて、複数のデバイス/アプリケーションに対して、デバイスが持つ情報を同時に配信するモジュールです。",
+        "tags": [
+            "psoc",
+            "ble",
+            "c",
+            "micon_programming",
+            "solo_development",
+            "grad_study"
+        ],
+        "article": "iotsm.html"
+    },
+    {
         "thumbnail": "fbac.jpg",
         "title": "Figura Blue Archive Characters",
         "description": "Minecraftで使える、某スマートフォンゲームのキャラクターをモチーフにしたアバターのセットです。",
