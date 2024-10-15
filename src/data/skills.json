@@ -48,6 +48,10 @@
         "icon": "st_microelectronics.svg"
     },
     {
+        "name": "Bluetooth Low Energy (BLE)",
+        "icon": "bluetooth.svg"
+    },
+    {
         "name": "GitHub Actions",
         "icon": "github.svg"
     },
