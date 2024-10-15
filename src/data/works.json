@@ -15,6 +15,20 @@
 
     },
     {
+        "thumbnail": "tyoumizanryou.jpg",
+        "title": "調味料残量可視化できる蔵",
+        "description": "調味料の残量をその重さから推定し、残量予測をクラウドを通じていつでも見られるようにするシステムです。",
+        "tags": [
+            "leafony",
+            "arduino",
+            "arduino_lang",
+            "contest",
+            "micon_programming",
+            "team_development"
+        ],
+        "article": "tyoumizanryou.html"
+    },
+    {
         "thumbnail": "fbac.jpg",
         "title": "Figura Blue Archive Characters",
         "description": "Minecraftで使える、某スマートフォンゲームのキャラクターをモチーフにしたアバターのセットです。",

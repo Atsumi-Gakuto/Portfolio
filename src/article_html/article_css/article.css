@@ -1,5 +1,4 @@
 /* 記事共通のスタイルシート */
-
 .github_link {
     display: flex;
     align-items: center;
@@ -16,4 +15,9 @@
     background-image: url('../../images/skill_icons/github.svg');
     background-position: center;
     background-size: contain;
+}
+
+.youtube_embed {
+    width: 100%;
+    aspect-ratio: 16 / 9;
 }

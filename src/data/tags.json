@@ -11,6 +11,10 @@
         "name": "Python",
         "color": "#ffd94a"
     },
+    "arduino_lang": {
+        "name": "Arduino言語",
+        "color": "#00979c"
+    },
     "unity": {
         "name": "Unity",
         "color": "#222c37"
@@ -18,6 +22,14 @@
     "raspi": {
         "name": "Raspberry Pi",
         "color": "#bc1142"
+    },
+    "arduino": {
+        "name": "Arduino",
+        "color": "#00979c"
+    },
+    "leafony": {
+        "name": "Leafony",
+        "color": "#309b18"
     },
     "minecraft": {
         "name": "Minecraft",
@@ -38,6 +50,10 @@
     "published_on_github": {
         "name": "GitHubで公開中",
         "color": "#161614"
+    },
+    "contest": {
+        "name": "コンテスト作品",
+        "color": null
     },
     "hobby": {
         "name": "趣味",
