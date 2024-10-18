@@ -91,6 +91,20 @@
         "article": "mdcs.html"
     },
     {
+        "thumbnail": null,
+        "title": "Wake-On-Lan Bot",
+        "description": "Discordを利用して、どこからでも自宅のPCを起動できるシステムです。",
+        "tags": [
+            "ts",
+            "discord",
+            "bot",
+            "published_on_github",
+            "solo_development",
+            "hobby"
+        ],
+        "article": "wolb.html"
+    },
+    {
         "thumbnail": "fbac.jpg",
         "title": "Figura Blue Archive Characters",
         "description": "Minecraftで使える、某スマートフォンゲームのキャラクターをモチーフにしたアバターのセットです。",
