@@ -115,5 +115,19 @@
             "hobby"
         ],
         "article": "senko.html"
+    },
+    {
+        "thumbnail": "swjt.jpg",
+        "title": "Stormworks JapaneseTranslation",
+        "description": "「Stormworks」というゲームの日本語化作業を手掛けているという話です。",
+        "tags": [
+            "stormworks",
+            "published_on_github",
+            "solo_development",
+            "hobby",
+            "ts",
+            "actions"
+        ],
+        "article": "swjt.html"
     }
 ]

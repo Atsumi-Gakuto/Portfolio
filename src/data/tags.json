@@ -55,6 +55,10 @@
         "name": "Minecraft",
         "color": "#52a535"
     },
+    "stormworks": {
+        "name": "Stormworks",
+        "color": "#b5b5b5"
+    },
     "line": {
         "name": "LINE",
         "color": "#01b900"
@@ -62,6 +66,10 @@
     "discord": {
         "name": "Discord",
         "color": "#5864f2"
+    },
+    "actions": {
+        "name": "GitHub Actions",
+        "color": "#161614"
     },
     "micon_programming": {
         "name": "マイコンプログラミング",
