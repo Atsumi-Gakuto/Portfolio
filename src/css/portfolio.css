@@ -94,10 +94,22 @@ nav, #standard_nav {
     font-weight: bold;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 580px) {
     #standard_nav {
         display: none;
     }
+}
+
+#standard_portfolio_github_button {
+    width: 40px !important;
+    margin-left: 10px;
+}
+
+.header_github_button > img {
+    width: 30px;
+    height: 60px;
+    object-fit: contain;
+    filter: invert(100%);
 }
 
 #compact_nav {
@@ -107,7 +119,7 @@ nav, #standard_nav {
     transition: 0.25s;
 }
 
-@media (min-width: 541px) {
+@media (min-width: 581px) {
     #compact_nav {
         display: none;
     }
@@ -155,7 +167,7 @@ nav, #standard_nav {
     background-color: white;
 }
 
-@media (min-width: 541px) {
+@media (min-width: 581px) {
     #compact_nav_menu {
         display: none;
     }
