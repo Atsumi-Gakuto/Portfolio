@@ -43,6 +43,21 @@
         "article": "iotsm.html"
     },
     {
+        "thumbnail": "iotsm_leafony.jpg",
+        "title": "IoTセンサーモジュールのLeafonyへの移植",
+        "description": "「複数サービスから同時利用可能なIoTセンサーモジュールフレームワーク」をLeafonyへ移植します。",
+        "tags": [
+            "leafony",
+            "stm32",
+            "ble",
+            "c",
+            "contest",
+            "micon_programming",
+            "solo_development"
+        ],
+        "article": "iotsm_leafony.html"
+    },
+    {
         "thumbnail": "fbac.jpg",
         "title": "Figura Blue Archive Characters",
         "description": "Minecraftで使える、某スマートフォンゲームのキャラクターをモチーフにしたアバターのセットです。",

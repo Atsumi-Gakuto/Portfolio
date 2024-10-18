@@ -39,6 +39,10 @@
         "name": "PSoC",
         "color": "#3d89c3"
     },
+    "stm32": {
+        "name": "STM32",
+        "color": "#1e71b8"
+    },
     "ble": {
         "name": "BLE",
         "color": "#0b3b8d"

@@ -1,0 +1,13 @@
+
+
+#media_area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#media_area > * {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+}
