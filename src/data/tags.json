@@ -51,9 +51,17 @@
         "name": "Minecraft",
         "color": "#52a535"
     },
+    "line": {
+        "name": "LINE",
+        "color": "#01b900"
+    },
     "micon_programming": {
         "name": "マイコンプログラミング",
         "color": "#10ab4b"
+    },
+    "bot": {
+        "name": "Bot",
+        "color": null
     },
     "solo_development": {
         "name": "個人開発",
@@ -66,6 +74,14 @@
     "published_on_github": {
         "name": "GitHubで公開中",
         "color": "#161614"
+    },
+    "class_work": {
+        "name": "授業での制作物",
+        "color": null
+    },
+    "study_work": {
+        "name": "研究活動での制作物",
+        "color": null
     },
     "grad_study": {
         "name": "卒業研究",

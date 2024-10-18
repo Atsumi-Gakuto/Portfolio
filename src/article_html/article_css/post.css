@@ -1,0 +1,10 @@
+.image_with_annotation {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.image_with_annotation > p {
+    font-size: small;
+    text-align: center;
+}

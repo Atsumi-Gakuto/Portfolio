@@ -9,7 +9,8 @@
             "cs",
             "python",
             "micon_programming",
-            "team_development"
+            "team_development",
+            "class_work"
         ],
         "article": "hakokoron.html"
 
@@ -38,6 +39,7 @@
             "c",
             "micon_programming",
             "solo_development",
+            "study_work",
             "grad_study"
         ],
         "article": "iotsm.html"
@@ -53,9 +55,25 @@
             "c",
             "contest",
             "micon_programming",
-            "solo_development"
+            "solo_development",
+            "study_work"
         ],
         "article": "iotsm_leafony.html"
+    },
+    {
+        "thumbnail":"post.jpg",
+        "title": "Raspberry Piで作るポスト投函検出システム",
+        "description": "Raspberry Piを用いて作成した、郵便物が投函させたことをLINEで通知するシステムです。",
+        "tags": [
+            "raspi",
+            "line",
+            "bot",
+            "python",
+            "micon_programming",
+            "team_development",
+            "class_work"
+        ],
+        "article": "post.html"
     },
     {
         "thumbnail": "fbac.jpg",

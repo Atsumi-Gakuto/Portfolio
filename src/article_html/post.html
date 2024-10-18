@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./article_css/article.css">
+        <link rel="stylesheet" href="./article_css/post.css">
+    </head>
+    <body>
+        <div>
+            <p>ポストに投函された郵便物を検知して、それをLINEに通知するシステムです。</p>
+            <p>この作品を考案した経緯として、私が暮らしている集合住宅は部屋からポストまでの距離が遠く、郵便物が投函されたことに気付かなかったり、いちいちポストを確認するのが面倒だったということがあります。</p>
+        </div>
+        <div class="image_with_annotation">
+            <img class="image" src="./article_images/post/post_sample.jpg">
+            <p>アイリスオーヤマ ポスト レッド PW-400</p>
+        </div>
+        <div>
+            <p>ポストは上記画像のような、投函口に蓋が付いているものを使用しています。蓋の部分に接点を設置しており、投函口の蓋が閉じている時は接点同士が接触していますが、蓋が開くと接点同士が離れます。ポスト内に貼り付けたRaspberry Piがこれを検知し、LINE Botへ送信する仕組みです。また、カメラを用いて、ポスト内の投函された郵便物を遠隔で確認できる機能も搭載されています。</p>
+            <p>このシステムの課題として、電源問題があります。ポスト内では電源供給を行うことができず、バッテリー駆動にする必要があります。限られた電力下でのRaspberry Piでの長時間駆動は難しいので、別のマイコンを使用する必要があると考えています。</p>
+        </div>
+    </body>
+</html>
