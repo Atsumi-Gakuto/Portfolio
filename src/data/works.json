@@ -87,5 +87,20 @@
             "hobby"
         ],
         "article": "fbac.html"
+    },
+    {
+        "thumbnail": "mdcs.jpg",
+        "title": "Minecraft Discord Chat Sync",
+        "description": "ゲーム「Minecraft」のゲーム内チャットとチャットサービス「Discord」のチャットを同期するシステムです。",
+        "tags": [
+            "ts",
+            "minecraft",
+            "discord",
+            "bot",
+            "published_on_github",
+            "solo_development",
+            "hobby"
+        ],
+        "article": "mdcs.html"
     }
 ]

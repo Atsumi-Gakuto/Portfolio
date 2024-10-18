@@ -11,6 +11,10 @@
         "name": "Python",
         "color": "#ffd94a"
     },
+    "ts": {
+        "name": "TypeScript",
+        "color": "#007acc"
+    },
     "arduino_lang": {
         "name": "Arduino言語",
         "color": "#00979c"
@@ -54,6 +58,10 @@
     "line": {
         "name": "LINE",
         "color": "#01b900"
+    },
+    "discord": {
+        "name": "Discord",
+        "color": "#5864f2"
     },
     "micon_programming": {
         "name": "マイコンプログラミング",
