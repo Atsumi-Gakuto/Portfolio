@@ -59,7 +59,16 @@ class PopupManager {
             if(articleBodyHtml.src.length == 0 || articleBodyHtml.src.match(fileNameMatcher)![0] != articleData.body.match(fileNameMatcher)![0]) {
                 articleBodyHtml.classList.add("hidden");
                 loadingArea.classList.remove("hidden");
-                (document.getElementById("article_image") as HTMLImageElement).src = articleData.thumbnail;
+                if(articleData.thumbnail.endsWith("/null")) {
+                    (document.getElementById("article_image") as HTMLImageElement).classList.add("hidden");
+                    (document.getElementById("article_no_image") as HTMLImageElement).classList.remove("hidden");
+                }
+                else {
+                    (document.getElementById("article_no_image") as HTMLImageElement).classList.add("hidden");
+                    const articleImage: HTMLImageElement = document.getElementById("article_image") as HTMLImageElement;
+                    articleImage.src = articleData.thumbnail;
+                    articleImage.classList.remove("hidden");
+                }
                 (document.getElementById("article_title") as HTMLHeadingElement).innerText = articleData.title;
                 articleBodyHtml.src = articleData.body;
             }

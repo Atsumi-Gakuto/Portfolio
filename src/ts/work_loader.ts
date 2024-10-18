@@ -5,7 +5,7 @@ interface WorkData {
     /**
      * サムネイル画像のファイル名
      */
-    thumbnail: string;
+    thumbnail: string|null;
     /**
      * 記事のタイトル
      */
@@ -55,9 +55,22 @@ class WorkLoader extends SectionLoader {
                     data.forEach((entry: WorkData) => {
                         const workEntry: HTMLDivElement = document.createElement("div");
                         workEntry.classList.add("works_article", "gray_floating_block");
-                        const articleImage: HTMLImageElement = document.createElement("img");
-                        articleImage.src = `./images/article_thumbnails/${entry.thumbnail}`;
-                        workEntry.appendChild(articleImage);
+                        if(entry.thumbnail != null) {
+                            const articleImage: HTMLImageElement = document.createElement("img");
+                            articleImage.src = `./images/article_thumbnails/${entry.thumbnail}`;
+                            workEntry.appendChild(articleImage);
+                        }
+                        else {
+                            const articleNoImage: HTMLDivElement = document.createElement("div");
+                            articleNoImage.classList.add("article_no_image");
+                            const noImageIcon: HTMLImageElement = document.createElement("img");
+                            noImageIcon.src = "./images/icons/no_image.svg";
+                            articleNoImage.appendChild(noImageIcon);
+                            const noImageText: HTMLParagraphElement = document.createElement("p");
+                            noImageText.innerText = "No Image";
+                            articleNoImage.appendChild(noImageText);
+                            workEntry.appendChild(articleNoImage);
+                        }
                         const articleSummary = document.createElement("div");
                         articleSummary.classList.add("article_summary");
                         const articleTitle: HTMLHeadingElement = document.createElement("h2");
