@@ -11,10 +11,6 @@
         "name": "Python",
         "color": "#ffd94a"
     },
-    "ts": {
-        "name": "TypeScript",
-        "color": "#007acc"
-    },
     "arduino_lang": {
         "name": "Arduino言語",
         "color": "#00979c"
@@ -22,6 +18,22 @@
     "c": {
         "name": "C言語",
         "color": "#00599c"
+    },
+    "ts": {
+        "name": "TypeScript",
+        "color": "#007acc"
+    },
+    "js": {
+        "name": "JavaScript",
+        "color": "#f0db4f"
+    },
+    "html": {
+        "name": "HTML",
+        "color": "#ef652a"
+    },
+    "css": {
+        "name": "CSS",
+        "color": "#1c88c7"
     },
     "unity": {
         "name": "Unity",
@@ -70,6 +82,10 @@
     "actions": {
         "name": "GitHub Actions",
         "color": "#161614"
+    },
+    "chrome_extension": {
+        "name": "Chrome拡張機能",
+        "color": "#196fe2"
     },
     "micon_programming": {
         "name": "マイコンプログラミング",

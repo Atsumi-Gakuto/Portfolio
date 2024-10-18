@@ -143,5 +143,20 @@
             "actions"
         ],
         "article": "swjt.html"
+    },
+    {
+        "thumbnail": "cpb.jpg",
+        "title": "Custom Page Background",
+        "description": "検索エンジンページの背景にお好みの画像を挿入できるChrome拡張機能です。",
+        "tags": [
+            "js",
+            "html",
+            "css",
+            "chrome_extension",
+            "published_on_github",
+            "solo_development",
+            "hobby"
+        ],
+        "article": "cpb.html"
     }
 ]

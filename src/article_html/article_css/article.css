@@ -31,3 +31,8 @@ body {
     width: 100%;
     aspect-ratio: 16 / 9;
 }
+
+.digression {
+    color: darkgray;
+    font-size: x-small;
+}
