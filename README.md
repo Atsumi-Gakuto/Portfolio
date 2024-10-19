@@ -29,3 +29,60 @@ https://atsumi-gakuto.github.io/Portfolio/portfolio.html
 タグ検索には、記事のタグが羅列されているので、それらをクリックし選択すると、選択したタグを全て含む記事のみをフィルタリングして表示します。
 
 なお、記事は`./src/data/works.json`、タグは`./src/data/tags.json`から取得します。
+
+## ページのデータ追加
+スキル・制作物の記事・記事に付けるタグは`./src/data/`内にあるJSONファイルに編集することで編集します。
+
+### skills.json
+「SKILLS」セクションに羅列する情報を定義します。
+
+```
+<root>
+└ <Array>
+  ├ name: string
+  └ icon: string|null
+```
+
+| シンボル | 型 | 説明 |
+| - | - | - |
+| name | string | スキルの表示名 |
+| icon | string\|null | スキルのアイコン。`./src/images/skill_icons/`内にあるファイル名を指定する。"null"にするとデフォルトのアイコンが充てられる。 |
+
+### works.json
+「WORKS」セクションにある記事の情報を定義します。
+
+```
+<root>
+└ <Array>
+  ├ thumbnail: string|null
+  ├ title: string
+  ├ description: string
+  ├ tags: array
+  │ └ tag_name: string
+  └ article: string
+```
+
+| シンボル | 型 | 説明 |
+| - | - | - |
+| thumbnail | string\|null | 記事のサムネイル画像。`./src/images/article_thumbnails/`内にあるファイル名を指定する。"null"にすると「No Image」と表示する。 |
+| title | string | 記事のタイトル |
+| description | string | 記事の概要。簡潔な1文を推奨。 |
+| tags | string[] | 記事に付けるタグの配列 |
+| tag_name | string | 記事に付けるタグのキー名。タグは`./src/data/tags.json`で定義する。 |
+| article | string | 記事の本文が書かれているhtmlファイル。`./src/article_html/`内にあるファイル名を指定する。 |
+
+### tags.json
+「WORKS」セクション内の記事に付けるタグを定義します。
+
+```
+<root>
+└ tag_name
+  ├ display_name: string
+  └ color: string|null
+```
+
+| シンボル | 型 | 説明 |
+| - | - | - |
+| tag_name | | タグのキー名。`./src/data/works.json`内の`tag_name`にはこの値を入力する。 |
+| display_name | string | タグの表示名 |
+| color | string\|null | タグの色。HEX値で指定する（例：#FF0000）。"null"にするとデフォルトの色が充てられる。 |
